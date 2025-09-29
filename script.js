@@ -20,51 +20,61 @@ function getcomputerChoice(){
     return computerChoice
     
 }
-console.log(getcomputerChoice())
-
 
 function gethumanChoice(){
     return humanChoice = prompt("Enter your choice", "")
 }
-gethumanChoice()
 let humanScore = 0
 let computerScore = 0
-humanChoice = humanChoice.toLowerCase();
-console.log(humanChoice)
 function playround( humanChoice, computerChoice){
     if (humanChoice === computerChoice){
-        console.log("You tied")
+        alert("You tied")
     }
     else if (humanChoice === "rock" && computerChoice === "scissor"){
-        console.log(`You win! ${humanChoice} beats ${computerChoice}`)
+        alert(`You win! ${humanChoice} beats ${computerChoice}`)
         humanScore = ++humanScore
     }
     else if (humanChoice === "rock" && computerChoice === "paper"){
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}` )
+        alert(`You lose! ${computerChoice} beats ${humanChoice}` )
         humanScore = --humanScore
     }
     else if (humanChoice === "scissor" && computerChoice === "rock"){
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}`)
+        alert(`You lose! ${computerChoice} beats ${humanChoice}`)
         humanScore = --humanScore
     }
     else if (humanChoice === "scissor" && computerChoice === "paper"){
-        console.log(`You win! ${humanChoice} beats ${computerChoice}`)
+        alert(`You win! ${humanChoice} beats ${computerChoice}`)
         humanScore = ++humanScore
     }
     else if (humanChoice === "paper" && computerChoice === "scissor"){
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}`)
+        alert(`You lose! ${computerChoice} beats ${humanChoice}`)
         humanScore = --humanScore
     }
     else if (humanChoice === "paper" && computerChoice === "rock"){
-        console.log(`You win! ${humanChoice} beats ${computerChoice}`)
+        alert(`You win! ${humanChoice} beats ${computerChoice}`)
         humanScore = ++humanScore
     }
     else (
-        console.log("Yo there is something wrong")
+        alert("Yo there is something wrong")
     )
     
 
     console.log(`Your score is ${humanScore}`)
     console.log (`The computer's score is ${computerScore}`)
 }
-playround(humanChoice, computerChoice)
+for ( let i = 0; i < 5; i++){
+    chance = Math.floor(Math.random()*100)
+    console.log(` The computer chose ${getcomputerChoice()}`)
+    console.log(` You chose ${gethumanChoice()}`)
+    humanChoice = humanChoice.toLowerCase();
+    playround(humanChoice, computerChoice)
+}
+if (humanScore === computerScore){
+    alert(`You fought hard but it was a tie \n Your score is ${humanScore} \n The computer's score is ${computerScore} `)
+}
+else if (humanScore > computerScore){
+    alert(`Congratulation! You are the winner! \n Your score is ${humanScore} \n The computer's score is ${computerScore} `)
+}
+else {
+    alert(`Unfortunately you lost this time \n Your score is ${humanScore} \n The computer's score is ${computerScore}` )
+}
